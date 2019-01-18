@@ -36,7 +36,6 @@ int main()
     int day, month, year;
 
     printf("Tag eingeben: ");
-
     scanf("%i", &day);
     printf("Monat eingeben: ");
     scanf("%i", &month);
@@ -53,7 +52,7 @@ int main()
 
 int getdaysformonth(int month, int year)
 {   ///Es werden die Anzahl der Tage zurückgegeben, die der jeweilige Monat hat
-    int daysofmonth[13];
+    int daysofmonth[13];///Definition der Tage im Monat
 
     daysofmonth[1] = 31;
     daysofmonth[2] = 28;
