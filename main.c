@@ -25,10 +25,10 @@ int main()
     printf("Jahr eingeben: ");
     scanf("%i", &year);
 
-    if(day_of_the_year(day,month,year) != 0)///Prüfung, ob ein gültiges Datum eingegeben wurde (sobald die Anzahl der Tage 0 sind)
+    if(day_of_the_year(day,month,year) != -1)///Prüfung, ob ein gültiges Datum eingegeben wurde (sobald die Anzahl der Tage 0 sind)
       printf("Tag des Jahres: %i\n", day_of_the_year(day, month, year));
     else
-      printf("\nUngültiges Datum!\n");
+      printf("\nUngueltiges Datum!\n");
 
     return 0;
 }
