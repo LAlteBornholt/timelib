@@ -19,15 +19,19 @@ int input_date(int *day, int *month, int *year)
     scanf("%i", year);
 }
 
+/*
+ * Es wird herausgefunden, den wievielten Tag in dem eingegeben Jahr das Datum hat
+ * Rückgabewert: Tag des Jahres
+ */
 int day_of_the_year(int day, int month, int year)
-{   ///Es wird herausgefunden, den wievielten Tag in dem eingegeben Jahr das Datum hat
+{
     int sum = 0;
 
     if(!exists_date(day, month, year))
     {
         return 0;
     }
-    ///getdaysformonth(month, year);
+    ///summiert Tage pro Monat auf (bis zum eingegebenen Monat)
     for(int i = 1; i < month; i++)
     {
         sum += getdaysformonth(i, year);
@@ -37,8 +41,12 @@ int day_of_the_year(int day, int month, int year)
     return sum;///Zurückgeben des Ergebnisses;
 }
 
+ /*
+  * Es werden die Anzahl der Tage zurückgegeben, die der jeweilige Monat hat
+  * Rückgabewert: Tage im Monat pro Monat
+  */
 int getdaysformonth(int month, int year)
-{   ///Es werden die Anzahl der Tage zurückgegeben, die der jeweilige Monat hat
+{
     int daysofmonth[13];///Definition der Tage im Monat
 
     daysofmonth[1] = 31;
@@ -60,8 +68,12 @@ int getdaysformonth(int month, int year)
     return daysofmonth[month];
 }
 
+ /*
+  * Es wird überprüft, ob das eingegebene Datum existiert
+  * Rückgabewert: 1 = Wahr, 0 = Falsch
+  */
 bool exists_date(int day, int month, int year)
-{   ///Es wird überprüft, ob das eingegebene Datum existiert
+{   ///
     if(day <= 31 && day >= 1)
     {
         if(month <= 12 && month >= 1)
@@ -86,8 +98,12 @@ bool exists_date(int day, int month, int year)
     }
 }
 
+ /*
+  * Es wird geprüft, ob es sich bei dem eingegebenen Datum um ein Schaltjahr handelt
+  * Rückgabewert: Wahr, wenn es ein Schaltjahr ist, Falsch, wenn nicht
+  */
 bool is_leapyear(int year)
-{   ///Es wird geprüft, ob es sich bei dem eingegebenen Datum um ein Schaltjahr handelt
+{
     if(year < 1582 || year > 2400)
     {
         return -1;

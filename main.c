@@ -15,6 +15,10 @@ bool is_leapyear(int year);
 bool exists_date(int day, int month, int year);
 int input_date(int day, int month, int year);
 
+ /*
+  * Algorithmus des Programms, Prüfung, ob ein eingegebenes Datum gültig ist
+  * Rückgabewert: 0
+  */
 int main()
 {
     int day, month, year;
