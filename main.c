@@ -13,17 +13,15 @@ int getdaysformonth(int month, int year);
 int day_of_the_year(int day, int month, int year);
 bool is_leapyear(int year);
 bool exists_date(int day, int month, int year);
+int input_date(int day, int month, int year);
 
 int main()
 {
     int day, month, year;
 
-    printf("Tag eingeben: ");
-    scanf("%i", &day);
-    printf("Monat eingeben: ");
-    scanf("%i", &month);
-    printf("Jahr eingeben: ");
-    scanf("%i", &year);
+    input_date(&day, &month, &year);
+
+    printf("%i, %i, %i\n\n", day, month, year);
 
     if(day_of_the_year(day,month,year) != -1)///Prüfung, ob ein gültiges Datum eingegeben wurde (sobald die Anzahl der Tage 0 sind)
       printf("Tag des Jahres: %i\n", day_of_the_year(day, month, year));

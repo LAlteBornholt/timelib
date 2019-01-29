@@ -9,6 +9,15 @@
 #include <stdbool.h>
 #include "timelib.h"
 
+int input_date(int *day, int *month, int *year)
+{   ///Es wird das Datum zur Berechnung des Tages im jahr eingegeben und an die main() Funktion zurückgeben
+    printf("Tag eingeben: ");
+    scanf("%i", day);
+    printf("Monat eingeben: ");
+    scanf("%i", month);
+    printf("Jahr eingeben: ");
+    scanf("%i", year);
+}
 
 int day_of_the_year(int day, int month, int year)
 {   ///Es wird herausgefunden, den wievielten Tag in dem eingegeben Jahr das Datum hat
