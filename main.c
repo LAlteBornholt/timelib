@@ -9,26 +9,30 @@
 #include <stdbool.h>
 #include "timelib.h"
 
-int getdaysformonth(int month, int year);
-int day_of_the_year(int day, int month, int year);
-bool is_leapyear(int year);
-bool exists_date(int day, int month, int year);
-int input_date(int day, int month, int year);
+struct date dateinput {
+    int day;
+    int month;
+    int year;
+};
 
+int getdaysformonth(struct date dateinput());
+int day_of_the_year(struct date dateinput());
+bool is_leapyear(int year);
+bool exists_date(struct date dateinput());
+int input_date(struct date dateinput());
  /*
   * Algorithmus des Programms, Prüfung, ob ein eingegebenes Datum gültig ist
   * Rückgabewert: 0
   */
 int main()
 {
-    int day, month, year;
 
-    input_date(&day, &month, &year);
+    input_date(&dateinput().day, &dateinput.month, &dateinput.year);
 
-    printf("%i, %i, %i\n\n", day, month, year);
+    printf("%i, %i, %i\n\n", dateinput.day, dateinput.month, dateinput.year);
 
-    if(day_of_the_year(day,month,year) != -1)///Prüfung, ob ein gültiges Datum eingegeben wurde (sobald die Anzahl der Tage 0 sind)
-      printf("Tag des Jahres: %i\n", day_of_the_year(day, month, year));
+    if(day_of_the_year(dateinput()) != -1)///Prüfung, ob ein gültiges Datum eingegeben wurde (sobald die Anzahl der Tage 0 sind)
+      printf("Tag des Jahres: %i\n", day_of_the_year(dateinput.day, dateinput.month, dateinput.year));
     else
       printf("\nUngueltiges Datum!\n");
 

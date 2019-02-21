@@ -23,20 +23,20 @@ int input_date(int *day, int *month, int *year)
  * Es wird herausgefunden, den wievielten Tag in dem eingegeben Jahr das Datum hat
  * Rückgabewert: Tag des Jahres
  */
-int day_of_the_year(int day, int month, int year)
+int day_of_the_year(struct date dateinput())
 {
     int sum = 0;
 
-    if(!exists_date(day, month, year))
+    if(!exists_date(dateinput.day, dateinput.month, dateinput.year))
     {
         return 0;
     }
     ///summiert Tage pro Monat auf (bis zum eingegebenen Monat)
     for(int i = 1; i < month; i++)
     {
-        sum += getdaysformonth(i, year);
+        sum += getdaysformonth(i, dateinput.year);
     }
-    sum+= day;
+    sum+= dateinput.day;
 
     return sum;///Zurückgeben des Ergebnisses;
 }
@@ -45,7 +45,7 @@ int day_of_the_year(int day, int month, int year)
   * Es werden die Anzahl der Tage zurückgegeben, die der jeweilige Monat hat
   * Rückgabewert: Tage im Monat pro Monat
   */
-int getdaysformonth(int month, int year)
+int getdaysformonth(struct date dateinput())
 {
     int daysofmonth[13];///Definition der Tage im Monat
 
@@ -62,23 +62,23 @@ int getdaysformonth(int month, int year)
     daysofmonth[11] = 30;
     daysofmonth[12] = 31;
 
-    if(is_leapyear(year) && month == 2)
+    if(is_leapyear(dateinput.year) && dateinput.month == 2)
         daysofmonth[2]++;
 
-    return daysofmonth[month];
+    return daysofmonth[dateinput.month];
 }
 
  /*
   * Es wird überprüft, ob das eingegebene Datum existiert
   * Rückgabewert: 1 = Wahr, 0 = Falsch
   */
-bool exists_date(int day, int month, int year)
+bool exists_date(struct date dateinput())
 {   ///
-    if(day <= 31 && day >= 1)
+    if(dateinput.day <= 31 && dateinput.day >= 1)
     {
-        if(month <= 12 && month >= 1)
+        if(dateinput.month <= 12 && dateinput.month >= 1)
         {
-            if(year >= 1582 && year <= 2400)
+            if(dateinput.year >= 1582 && dateinput.year <= 2400)
             {
                 return 1;
             }
