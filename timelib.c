@@ -9,14 +9,20 @@
 #include <stdbool.h>
 #include "timelib.h"
 
-int input_date(int *day, int *month, int *year)
+struct date dateinput {
+    int day;
+    int month;
+    int year;
+};
+
+int input_date()
 {   ///Es wird das Datum zur Berechnung des Tages im jahr eingegeben und an die main() Funktion zurückgeben
     printf("Tag eingeben: ");
-    scanf("%i", day);
+    scanf("%i", dateinput.day);
     printf("Monat eingeben: ");
-    scanf("%i", month);
+    scanf("%i", dateinput.month);
     printf("Jahr eingeben: ");
-    scanf("%i", year);
+    scanf("%i", dateinput.year);
 }
 
 /*
@@ -35,7 +41,7 @@ int day_of_the_year(struct date dateinput())
     for(int i = 1; i < month; i++)
     {
         sum += getdaysformonth(i, dateinput.year);
-    }
+        }
     sum+= dateinput.day;
 
     return sum;///Zurückgeben des Ergebnisses;

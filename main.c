@@ -8,18 +8,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "timelib.h"
-
-struct date dateinput {
-    int day;
-    int month;
-    int year;
-};
-
-int getdaysformonth(struct date dateinput());
-int day_of_the_year(struct date dateinput());
-bool is_leapyear(int year);
-bool exists_date(struct date dateinput());
-int input_date(struct date dateinput());
  /*
   * Algorithmus des Programms, Prüfung, ob ein eingegebenes Datum gültig ist
   * Rückgabewert: 0
@@ -27,7 +15,7 @@ int input_date(struct date dateinput());
 int main()
 {
 
-    input_date(&dateinput().day, &dateinput.month, &dateinput.year);
+    input_date();
 
     printf("%i, %i, %i\n\n", dateinput.day, dateinput.month, dateinput.year);
 

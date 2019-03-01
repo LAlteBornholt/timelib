@@ -1,3 +1,8 @@
+/**
+ * Programm: Es wird ein Datum eingegeben, es soll herausgefunden werden der wievielte Tag des Jahres das Datum ist
+ * Autor: Lukas Alte-Bornholt
+ * Datum: 18.12.2018
+ **/
 #ifndef TIMELIB_H_INCLUDED
 #define TIMELIB_H_INCLUDED
 
